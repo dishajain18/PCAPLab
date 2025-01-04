@@ -29,10 +29,10 @@ void toggle(char* word,int rank)
 int main(int argc,char* argv[])
 {
 	int rank;
-	char word[]="HeLL@o";
+	char word[100];
 	MPI_Init(&argc,&argv);
 	MPI_Comm_rank(MPI_COMM_WORLD,&rank);
-	//strcpy(word,argv[1]); to read from command line
+	strcpy(word,argv[1]); //to read from command line
 	toggle(word,rank);
 	MPI_Finalize();
 	return 0;
