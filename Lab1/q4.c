@@ -21,7 +21,10 @@ void toggle(char* word,int rank)
   	new[rank]=word[rank]-32;
   
   else
+  {
   	printf("P%d: %c invalid char\n",rank,word[rank]);
+	return;
+  }
   
   printf("P%d: Toggled %s to %s\n",rank,word,new);	
 }
