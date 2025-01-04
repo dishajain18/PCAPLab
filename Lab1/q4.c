@@ -14,10 +14,10 @@ void toggle(char* word,int rank)
   	return;
   }
   
-  if(word[rank]>=65&&word[rank]<=90)
+  if(word[rank]>=65 && word[rank]<=90)
    	new[rank]=32+word[rank];
   
-  else if(word[rank]>=97&&word[rank]<=122)
+  else if(word[rank]>=97 && word[rank]<=122)
   	new[rank]=word[rank]-32;
   
   else
