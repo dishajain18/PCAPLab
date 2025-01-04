@@ -6,7 +6,7 @@
 
 void toggle(char* word,int rank)
 {
-  char new[100];
+  char new[strlen(word) +1];
   strcpy(new,word);
   if(strlen(word)<= rank)
   {
