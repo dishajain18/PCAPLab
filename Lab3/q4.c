@@ -39,16 +39,16 @@ int main(int argc, char* argv[])
 	{
 		MPI_Scatter(string1+size*i,1,MPI_CHAR,recvbuf,1,MPI_CHAR,0,MPI_COMM_WORLD);
 		MPI_Scatter(string2+size*i,1,MPI_CHAR,recvbuf+1,1,MPI_CHAR,0,MPI_COMM_WORLD);
-		sleep(2);
-		MPI_Gather(recvbuf,2,MPI_CHAR,final+2*m*i,2,MPI_CHAR,0,MPI_COMM_WORLD);
+		sleep(1);
+		MPI_Gather(recvbuf,2,MPI_CHAR,final+2*size*i,2,MPI_CHAR,0,MPI_COMM_WORLD);
 	}
 
 	if(rank==0)
 	{
+	        sleep(1);
 		final[strlen(string1)*2]='\0';
 		printf("Resultant String: %s\n",final);
 	}
 	MPI_Finalize();
 	return 0;
 }
-
