@@ -16,18 +16,13 @@ int main(int argc, char* argv[])
 	{
 		printf("Enter value of m: ");
 		scanf("%d",&m);	
-	}
-
-	MPI_Bcast(&m,1,MPI_INT,0,MPI_COMM_WORLD);
-
-	if(rank==0)
-	{
 		sendbuf=(float*)calloc(m*size,sizeof(float));
 		printf("Enter %d values: ",m*size);
 		for(int i=0;i<m*size;i++)
 			scanf("%f",&sendbuf[i]);
 	}
-	
+
+	MPI_Bcast(&m,1,MPI_INT,0,MPI_COMM_WORLD);	
 	float mvalues[m]; // All processes receive m elements here
 	MPI_Scatter(sendbuf,m,MPI_FLOAT,mvalues,m,MPI_FLOAT,0,MPI_COMM_WORLD);
 	float avg=0;
