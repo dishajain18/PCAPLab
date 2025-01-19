@@ -41,13 +41,15 @@ int main(int argc, char* argv[])
 		if(!isvowel(recvbuf[i]))
 			nonvowels++;
 	}
-	printf("P%d: %d Non-vowels\n",rank,nonvowels);
 	MPI_Gather(&nonvowels,1,MPI_INT,results,1,MPI_INT,0,MPI_COMM_WORLD);
 	if(rank==0)
 	{
 		int total=0;
 		for(int i=0;i<size;i++)
+		{
+			printf("P%d: %d Non-vowels\n",i,results[i]);
 			total+=results[i];
+		}
 		sleep(1);
 		printf("Total %d Non-vowels\n",total);
 	}
