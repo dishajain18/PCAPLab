@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 	for(int i=0;i<m;i++)
 		avg+=mvalues[i];
 	avg/=m;
-	printf("P%d: Average of is %.2f\n",rank,avg);
+	printf("P%d: Average is %.2f\n",rank,avg);
 	MPI_Gather(&avg,1,MPI_FLOAT,averages,1,MPI_FLOAT,0,MPI_COMM_WORLD);//can use reduce also
 	if(rank==0)
 	{
