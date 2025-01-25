@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 		if(rank==0)
 			printf("No. of processes not equal to 3\n");
 		MPI_Finalize();
-		exit(0);
+		exit(-1);
 	}
 	int matrix[3][3];
 	int recv[3];
