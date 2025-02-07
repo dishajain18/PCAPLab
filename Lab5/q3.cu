@@ -9,7 +9,6 @@ __global__ void mykernel(float * A,float * B)
 	int ntpd = blockDim.x; //no.of threads per block
 	int tnb = threadIdx.x; //thread no. in block or local thread id
 	int gtid = bng * ntpd + tnb;  
-
 	B[gtid] = sinf(A[gtid]);
 }
 
@@ -23,14 +22,12 @@ int main()
 	printf("Enter no. of threads in 1D block: ");
 	scanf("%d",&thrds);
 	int  N = blks*thrds;
-	int *d_N;
 	int S = N * sizeof(float);
 	A = (float*)malloc(S);
 	B = (float*)malloc(S);
 
-    cudaMalloc((void**)&d_A , S);
+    	cudaMalloc((void**)&d_A , S);
 	cudaMalloc((void**)&d_B , S);
-	cudaMalloc((void**)&d_N , sizeof(int)); //no. of threads
 
 	printf("Enter %d angles (in degrees) in A: ",N);
 	for(int i=0; i<N; i++)
@@ -40,7 +37,6 @@ int main()
 	}
 
 	cudaMemcpy(d_A,A,S,cudaMemcpyHostToDevice);
-	cudaMemcpy(d_N,&N,sizeof(int),cudaMemcpyHostToDevice);
 
 	mykernel<<<blks,thrds>>>(d_A,d_B);
 
