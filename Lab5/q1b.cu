@@ -8,8 +8,6 @@ __global__ void mykernel(int * A,int * B,int * C)
 {
 	int ltid = threadIdx.x;
 	C[ltid] = A[ltid] + B[ltid];
-	int x = (int)sizeof(A)/sizeof(int);
-	printf("%d",x);
 }
 
 int main()
