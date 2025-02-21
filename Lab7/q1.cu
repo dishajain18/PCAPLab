@@ -59,7 +59,7 @@ int main()
             
         if(k==wordcount)
             break;
-    }
+    } // maybe try to include this loop in previous loop to be more optimal
 
     int count = 0;
     char * d_str, * d_key;
