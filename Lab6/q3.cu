@@ -54,7 +54,7 @@ int main()
     int A[n];
     int *d_A;
 
-    printf("Enter elements in N: ");
+    printf("Enter elements in A: ");
     for(int i=0; i< n; i++)
         scanf("%d",&A[i]);
 
