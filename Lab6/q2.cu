@@ -38,7 +38,7 @@ int main()
     int A[n],B[n];
     int *d_A,*d_B;
 
-    printf("Enter elements in N: ");
+    printf("Enter elements in A: ");
     for(int i=0; i< n; i++)
         scanf("%d",&A[i]);
 
