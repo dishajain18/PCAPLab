@@ -28,5 +28,6 @@ int main(int argc, char* argv[])
 			break;	
 		default: printf("No more operations left\n");		
 	}
+	MPI_Finalize();
 	return 0;
 }
