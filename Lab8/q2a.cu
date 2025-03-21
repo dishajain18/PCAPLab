@@ -23,6 +23,16 @@ int main()
     int m,n;
     scanf("%d %d",&m,&n);
     int A[m*n];
+    printf("Enter matrix dimensions of B(p and q): ");
+    int p,q;
+    scanf("%d %d",&p,&q);
+    if(n!=p)
+    {
+        printf("Matrix multiplication not possible\n");
+        exit(-1);
+    }
+    int B[p*q];
+
     int k=0;
     printf("Enter matrix A: \n");
     for(int i=0;i<m;i++)
@@ -33,15 +43,6 @@ int main()
         }    
     }
 
-    printf("Enter matrix dimensions of B(p and q): ");
-    int p,q;
-    scanf("%d %d",&p,&q);
-    if(n!=p)
-    {
-        printf("Matrix multiplication not possible\n");
-        exit(-1);
-    }
-    int B[p*q];
     k=0;
     printf("Enter matrix B: \n");
     for(int i=0;i<p;i++)
