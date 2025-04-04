@@ -21,6 +21,7 @@ __global__ void kernelele(int * A,int * B)
             bit = bit ^ 1; //XOR with 1 flips the bit
             ones += bit*pos;
             pos *= 10;
+            ele = ele/2;
         }
 
         B[row*n+col]=ones;
