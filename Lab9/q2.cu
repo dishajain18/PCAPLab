@@ -8,8 +8,8 @@ __global__ void mykernel(int * A, int * B, int n)
     int row = threadIdx.x;
     for(int i=0; i<n;i++)
     {
-        B[row*n+i] = A[row*n+i];
-        for(int j=2;j<=row+1;j++)
+        B[row*n+i] = 1;
+        for(int j=1;j<=row+1;j++)
             B[row*n+i] *= A[row*n+i];
     }
 }
