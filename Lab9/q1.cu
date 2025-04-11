@@ -69,8 +69,8 @@ int main()
         printf("%d ",col_index[i]);
 
     printf("\nEnter Vector x: \n");
-    int x[m];
-    for(int i=0;i<m;i++)
+    int x[n];
+    for(int i=0;i<n;i++)
         scanf("%d",&x[i]);
 
     int y[m];
@@ -79,13 +79,13 @@ int main()
     cudaMalloc((void**)&d_data,k*sizeof(int));
     cudaMalloc((void**)&d_row_ptr,(m+1)*sizeof(int));
     cudaMalloc((void**)&d_col_index,k*sizeof(int));
-    cudaMalloc((void**)&d_x,m*sizeof(int));
+    cudaMalloc((void**)&d_x,n*sizeof(int));
     cudaMalloc((void**)&d_y,m*sizeof(int));
 
     cudaMemcpy(d_data,data,k*sizeof(int),cudaMemcpyHostToDevice);
     cudaMemcpy(d_row_ptr,row_ptr,(m+1)*sizeof(int),cudaMemcpyHostToDevice);
     cudaMemcpy(d_col_index,col_index,k*sizeof(int),cudaMemcpyHostToDevice);
-    cudaMemcpy(d_x,x,m*sizeof(int),cudaMemcpyHostToDevice);
+    cudaMemcpy(d_x,x,n*sizeof(int),cudaMemcpyHostToDevice);
 
     //let's do 2 threads per block
     parallelspv<<<(m/2),2>>>(d_data,d_col_index,d_row_ptr,d_x,d_y,m);
