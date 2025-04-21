@@ -19,7 +19,7 @@ __global__ void conv1d(int * N,int * P,int * M,int width,int mask_width)
     {
         int sum=0;
         int sp = gtid - mask_width/2; //starting point to align mask and arr
-        for(int i=0; i < width; i++)
+        for(int i=0; i < mask_width; i++)
         {
             if(sp+i >= 0 && sp+i < width) // to avoid avoid access index < 0 and index > width - 1
                 sum+= N[sp + i] * M[i];
